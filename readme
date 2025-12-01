@@ -1,0 +1,145 @@
+# Sistema de Gestión de Biblioteca en Python
+
+## Portada
+
+Sistema de Gestión de Biblioteca en Python
+Estructura de Datos
+Diego Fabián Rojas Siza
+Corporación Universitaria Iberoamericana
+Fecha: 2025
+
+## Introducción
+Este proyecto tiene como objetivo la elaboración de un sistema de gestión de biblioteca mediante el lenguaje de programación Python, aplicando conceptos de programación orientada a objetos y estructuras de datos como colas y árboles binarios.
+
+La idea principal es tener una simulación práctica de cómo un sistema de biblioteca puede gestionar adecuadamente los registros de usuarios, libros y préstamos y la gestión de una cola de espera cuando un libro está prestado.
+
+Adicionalmente, se implementa una estructura de árbol binario de búsqueda (BST) para implementar la búsqueda de libros y usuarios con el objetivo de optimizar la localización de los datos, haciendo evidente la utilidad de estructuras de datos en sistemas reales.
+
+## Descripción
+Este proyecto implementa un **sistema de gestión de biblioteca** en Python orientado a objetos. 
+Permite administrar usuarios, libros y préstamos, además de integrar estructuras de datos como **colas (deque)** y **árboles binarios** para optimizar las operaciones.
+
+Los datos iniciales de libros y usuarios se cargan desde archivos JSON, permitiendo simular una base de datos inicial de la biblioteca.
+
+## Objetivo
+Crear un sistema de gestión de biblioteca en Python que permita administrar usuarios, libros y préstamos de manera eficiente, integrando estructuras de datos como **colas** y **árboles binarios**.
+
+---
+
+## Requerimientos funcionales
+
+- El sistema debe permitir la creación de usuarios, registrando nombre y documento.
+- El sistema debe mostrar todos los usuarios registrados.
+- El sistema debe permitir buscar usuarios por documento.
+- El sistema debe permitir agregar libros con título, autor y año de publicación.
+- El sistema debe mostrar todos los libros registrados.
+- El sistema debe permitir buscar libros por nombre.
+- El sistema debe permitir prestar un libro, siempre y cuando esté disponible.
+- El sistema debe registrar la **cola de espera de usuarios** cuando un libro ya esté prestado.
+- El sistema debe permitir devolver libros.
+- El sistema debe asignar automáticamente el libro al siguiente usuario en la cola de espera cuando se devuelva.
+
+## Requerimientos no funcionales
+
+- El sistema debe tener un menú sencillo para facilitar la interacción con el usuario.
+- El sistema debe mostrar mensajes de error y éxito de forma clara y comprensible.
+- El sistema debe garantizar que los IDs de los usuarios y libros sean únicos y autoincrementables.
+- El código debe estar modularizado y estructurado en clases.
+
+---
+
+## Estructuras de Datos Utilizadas
+
+### **Colas (deque)**
+- Se usan en la clase `Book` para manejar la **lista de espera** de usuarios.
+- Cuando un libro está prestado, los siguientes usuarios interesados se agregan a la cola.
+- Al devolver el libro, se asigna automáticamente al primer usuario en la cola.
+
+### **Árboles Binarios**
+- Se usa una clase `BinarySearchTree` para gestionar la búsqueda eficiente de **libros** y **usuarios**.
+- Permite insertar, buscar y recorrer en orden los registros almacenados.
+
+---
+
+## Clases Principales
+
+### `User`
+Representa a un usuario de la biblioteca. Contiene su ID, nombre y número de documento.
+
+### `Book`
+Representa un libro. Maneja información como título, autor, año y estado de préstamo.  
+Además, mantiene una cola de espera (`deque`) para los usuarios en lista de espera.
+
+### `Library`
+Es la clase principal que administra usuarios, libros y préstamos.  
+También contiene instancias de los árboles binarios para búsquedas y colecciones de libros/usuarios.
+
+### `BinarySearchTree`
+Implementa las operaciones básicas de un árbol binario de búsqueda, como inserción, búsqueda y recorrido in-order.
+
+---
+
+## Archivos JSON
+El sistema utiliza dos archivos para inicializar datos:
+- `users.json`: Contiene usuarios preexistentes.
+- `books.json`: Contiene los libros disponibles en la biblioteca.
+
+Ejemplo de `users.json`:
+```json
+[
+  {"id": 1, "name": "Carlos Pérez", "document": "123"},
+  {"id": 2, "name": "Ana Torres", "document": "456"}
+]
+```
+
+Ejemplo de `books.json`:
+```json
+[
+  {"id": 1, "title": "Cien Años de Soledad", "author": "Gabriel García Márquez", "year": 1967},
+  {"id": 2, "title": "Don Quijote de la Mancha", "author": "Miguel de Cervantes", "year": 1605}
+]
+```
+
+---
+
+## Ejecución del Programa
+
+Para ejecutar el sistema, simplemente corre el archivo principal:
+
+```bash
+python main.py
+```
+
+Este archivo contiene la función `main()` que muestra el menú interactivo y permite gestionar los préstamos, libros y usuarios.
+
+---
+
+## Ejemplo de Uso del Menú
+
+```
+===== Biblioteca Virtual =====
+1. Mostrar todos los libros
+2. Mostrar todos los usuarios
+3. Buscar libro
+4. Buscar usuario
+5. Prestar libro
+6. Devolver libro
+7. Salir
+```
+
+---
+
+## Autor
+**Diego Fabián Rojas Siza**
+
+## Conclusiones
+- El uso de estructuras de datos como colas y árboles binarios permite optimizar la gestión de información en sistemas reales.
+
+- Los archivos JSON permiten una forma práctica y flexible de inicializar datos sin requerir una base de datos real.
+
+- Este proyecto muestra cómo conceptos teóricos de estructuras de datos pueden aplicarse de forma práctica para resolver problemas cotidianos.
+
+## Referencias
+- Fritelli, V. Guzman, A. & Tymoschuk, J. (2020). Algoritmos y estructuras de datos (2a. ed.). Jorge Sarmiento Editor - Universitas. (Págs. 311 - 341).
+
+- Joyanes Aguilar, L. (2020). Fundamentos de programación: algoritmos, estructura de datos y objetos. (Págs. 492- 518).
