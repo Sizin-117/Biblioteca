@@ -1,0 +1,5 @@
+[
+  {"id": 1, "tittle": "Cien años de soledad", "author": "Gabriel García Márquez", "year": 1967},
+  {"id": 2, "tittle": "Don Quijote de la Mancha", "author": "Miguel de Cervantes", "year": 1605},
+  {"id": 3, "tittle": "El principito", "author": "Antoine de Saint-Exupéry", "year": 1943}
+]
